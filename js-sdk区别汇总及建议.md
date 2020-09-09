@@ -7,15 +7,15 @@ setProvider|	Conflux.prototype.setProvider|web3支持http, ipc, ws, tcp
 getChainId|	Conflux.prototype.getStatus|
 getGasPrice|	Conflux.prototype.getGasPrice|
 getBlockNumber|	Conflux.prototype.getEpochNumber|
--	|Conflux.prototype.getLogs|
+--	|Conflux.prototype.getLogs|
 getBalance|	Conflux.prototype.getBalance|
 getBlockTransactionCount|	Conflux.prototype.getNextNonce|
--	|Conflux.prototype.getConfirmationRiskByHash|
+--	|Conflux.prototype.getConfirmationRiskByHash|
 getBlock|	Conflux.prototype.getBlockByEpochNumber|
--	|Conflux.prototype.getBlocksByEpochNumber|
--	|Conflux.prototype.getBestBlockHash|
+--	|Conflux.prototype.getBlocksByEpochNumber|
+--	|Conflux.prototype.getBestBlockHash|
 getBlock|	Conflux.prototype.getBlockByHash|
--	|Conflux.prototype.getBlockByHashWithPivotAssumption|
+--	|Conflux.prototype.getBlockByHashWithPivotAssumption|
 getTransaction|	Conflux.prototype.getTransactionByHash|
 getTransactionReceipt|	Conflux.prototype.getTransactionReceipt|
 sendTransaction|	Conflux.prototype.sendTransaction| web3支持事件响应
@@ -71,14 +71,14 @@ ETH|	CFX	| 备注
 methods.myMethod.call|	contract.mymethod	|
 methods.myMethod.call|	contract.mymethod.call	|
 decodeParameters	|contract.mymethod.decodeData|	
--	|contract.mymethod.decodeOutputs	|
+--	|contract.mymethod.decodeOutputs	|
 methods.myMethod.encodeABI|	contract.mymethod.encodeData	|
 methods.myMethod.send|	contract.mymethod.send	|
 methods.myMethod.estimateGas|	contract.mymethod.estimateGasAndCollateral|	
 getPastLogs	|contract.myEvent.getLogs	|
--	|contract.myEvent.encodeTopics	|
+--	|contract.myEvent.encodeTopics	|
 decodeLog	|contract.myEvent.decodeLog	|
--	|contract.myEvent.call？| 	作用是什么，是否可以去掉
+--	|contract.myEvent.call？| 	作用是什么，是否可以去掉
 decodeParameters|	contract.abi.decodeData	|
 decodeLog|	contract.abi.decodeLog	|
 
@@ -89,7 +89,7 @@ ETH|CFX
 --|--
 address|	address	
 jsonInterface|	abi
--	|bytecode
+--	|bytecode
 	
 
 ## = Properties =	
@@ -139,19 +139,19 @@ decrypt|	Account.decrypt
 encrypt|	Account.prototype.encrypt	
 signTransaction|	Account.prototype.signTransaction	
 sign|	Account.prototype.signMessage	
--|	Account.prototype.toString	
+--|	Account.prototype.toString	
 sign|	Message.sign	
 recover|	Message.recover	
--|	Message.prototype.constructor	
--|	Message.prototype.from (getter)	
+--|	Message.prototype.constructor	
+--|	Message.prototype.from (getter)	
 sign|	Message.prototype.sign	
--|	Transaction.prototype.constructor	
--|	Transaction.prototype.hash (getter)	
--|	Transaction.prototype.from (getter)	
+--|	Transaction.prototype.constructor	
+--|	Transaction.prototype.hash (getter)	
+--|	Transaction.prototype.from (getter)	
 signTransaction|	Transaction.prototype.sign	
 recoverTransaction|	Transaction.prototype.recover	
--|	Transaction.prototype.encode|	rlp编码为16进制
--|	Transaction.prototype.serialize|	这个建议命名为encodeToBytes
+--|	Transaction.prototype.encode|	rlp编码为16进制
+--|	Transaction.prototype.serialize|	这个建议命名为encodeToBytes
 privateKeyToAccount|	utils模块支持	
 hashMessage|	Message.prototype.hash (getter)	
 
