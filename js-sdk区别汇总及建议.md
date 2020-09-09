@@ -3,26 +3,26 @@
 ETH|CFX|备注
 --|--|--
 setProvider|	Conflux.prototype.setProvider|web3支持http, ipc, ws, tcp
--	|Conflux.prototype.close
-getChainId|	Conflux.prototype.getStatus
-getGasPrice|	Conflux.prototype.getGasPrice
-getBlockNumber|	Conflux.prototype.getEpochNumber
--	|Conflux.prototype.getLogs
-getBalance|	Conflux.prototype.getBalance
-getBlockTransactionCount|	Conflux.prototype.getNextNonce
--	|Conflux.prototype.getConfirmationRiskByHash
-getBlock|	Conflux.prototype.getBlockByEpochNumber
--	|Conflux.prototype.getBlocksByEpochNumber
--	|Conflux.prototype.getBestBlockHash
-getBlock|	Conflux.prototype.getBlockByHash
--	|Conflux.prototype.getBlockByHashWithPivotAssumption
-getTransaction|	Conflux.prototype.getTransactionByHash
-getTransactionReceipt|	Conflux.prototype.getTransactionReceipt
+-	|Conflux.prototype.close|
+getChainId|	Conflux.prototype.getStatus|
+getGasPrice|	Conflux.prototype.getGasPrice|
+getBlockNumber|	Conflux.prototype.getEpochNumber|
+-	|Conflux.prototype.getLogs|
+getBalance|	Conflux.prototype.getBalance|
+getBlockTransactionCount|	Conflux.prototype.getNextNonce|
+-	|Conflux.prototype.getConfirmationRiskByHash|
+getBlock|	Conflux.prototype.getBlockByEpochNumber|
+-	|Conflux.prototype.getBlocksByEpochNumber|
+-	|Conflux.prototype.getBestBlockHash|
+getBlock|	Conflux.prototype.getBlockByHash|
+-	|Conflux.prototype.getBlockByHashWithPivotAssumption|
+getTransaction|	Conflux.prototype.getTransactionByHash|
+getTransactionReceipt|	Conflux.prototype.getTransactionReceipt|
 sendTransaction|	Conflux.prototype.sendTransaction| web3支持事件响应
-sendSignedTransaction|	Conflux.prototype.sendRawTransaction
-getCode|	Conflux.prototype.getCode
-call|	Conflux.prototype.call
-estimateGas|	Conflux.prototype.estimateGasAndCollateral
+sendSignedTransaction|	Conflux.prototype.sendRawTransaction|
+getCode|	Conflux.prototype.getCode|
+call|	Conflux.prototype.call|
+estimateGas|	Conflux.prototype.estimateGasAndCollateral|
 providers	| |列出支持的provier类型，建议支持
 givenProvider	||
 currentProvider	||获取当前provider实例， 建议支持
@@ -61,26 +61,26 @@ eth默认会在以下方法的返回值中携带错误原因
 - web3.eth.call();
 - web3.eth.sendTransaction();
 - contract.methods.myMethod(…).send(…);
-- contract.methods.myMethod(…).call(…)`
+- contract.methods.myMethod(…).call(…)
 
 ## 缺失的RPC建议补充
 
 # Contract模块
 ETH|	CFX	| 备注
 --|--|--
-methods.myMethod.call|	contract.mymethod	
-methods.myMethod.call|	contract.mymethod.call	
-decodeParameters	|contract.mymethod.decodeData	
--	|contract.mymethod.decodeOutputs	
-methods.myMethod.encodeABI|	contract.mymethod.encodeData	
-methods.myMethod.send|	contract.mymethod.send	
+methods.myMethod.call|	contract.mymethod	|
+methods.myMethod.call|	contract.mymethod.call	|
+decodeParameters	|contract.mymethod.decodeData|	
+-	|contract.mymethod.decodeOutputs	|
+methods.myMethod.encodeABI|	contract.mymethod.encodeData	|
+methods.myMethod.send|	contract.mymethod.send	|
 methods.myMethod.estimateGas|	contract.mymethod.estimateGasAndCollateral|	
-getPastLogs	|contract.myEvent.getLogs	
--	|contract.myEvent.encodeTopics	
-decodeLog	|contract.myEvent.decodeLog	
+getPastLogs	|contract.myEvent.getLogs	|
+-	|contract.myEvent.encodeTopics	|
+decodeLog	|contract.myEvent.decodeLog	|
 -	|contract.myEvent.call？| 	作用是什么，是否可以去掉
-decodeParameters|	contract.abi.decodeData	
-decodeLog|	contract.abi.decodeLog	
+decodeParameters|	contract.abi.decodeData	|
+decodeLog|	contract.abi.decodeLog	|
 
 Web3在call或send失败后会在返回结果中携带错误原因，建议支持。
 
