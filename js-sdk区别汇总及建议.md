@@ -3,7 +3,7 @@
 ETH|CFX|备注
 --|--|--
 setProvider|	Conflux.prototype.setProvider|web3支持http, ipc, ws, tcp
--	|Conflux.prototype.close|
+--	|Conflux.prototype.close|
 getChainId|	Conflux.prototype.getStatus|
 getGasPrice|	Conflux.prototype.getGasPrice|
 getBlockNumber|	Conflux.prototype.getEpochNumber|
