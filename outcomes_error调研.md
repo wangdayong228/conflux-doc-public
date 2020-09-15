@@ -38,7 +38,8 @@ vm error中不定长的信息有以下三种, 根据是否可控考虑是否做�
 
 在cfx_getTransactionReceipt时返回携带outcome_error的Receipt
 
-# ExecutionOutcome
+# tx Error相关代码
+## ExecutionOutcome
 ```rust
 // file: core/src/executive/executed.rs
 #[derive(Debug)]
@@ -244,7 +245,7 @@ pub enum Error {
 }
 ```
 
-代码路径 
+# 代码路径 
 ```mermaid
 graph TB
 
