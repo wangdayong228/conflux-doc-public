@@ -19,9 +19,9 @@ utils|util|工具类，提供一些通用函数，例如hex格式转换，单位
 以下是Conflux模块包含的方法及与Eth模块的对应关系，该模块主要封装了JSONRPC与节点交互，还有一部分JSONRPC暂未实现，将来会实现所有RPC。具体RPC介绍请参见 [Conflux JSONRPC介绍](https://developer.conflux-chain.org/docs/conflux-doc/docs/json_rpc) 及 [Conflux RPC与Ethereum RPC的区别]()
 这里的Epoch Number指用于划分一组Conflux区块为一个Epoch，Conflux区块链是以Epoch为顺序组织的。
 
-Conflux Conflux模块 | Ethereum Web3-Eth模块 | 对应RPC|
+Conflux Conflux模块 | Ethereum Web3-Eth模块 | 对应RPC|--
 --|--|--|--|--
-setProvider	|setProvider|-|
+setProvider	|setProvider|--|--
 getStatus	|getChainId|cfx_getStatus
 getGasPrice	|getGasPrice|cfx_gasPrice
 getEpochNumber	|getBlockNumber|cfx_epochNumber
