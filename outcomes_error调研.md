@@ -10,14 +10,14 @@ tx 当前主要有两个问题待解决
 ## tx打包了但交易失败
 分两种
 
-### 未打包时的error （已实现）
+### 1. 未打包时的error （已实现）
 如nonce太低，太高，epochheight不对等情况
 直接返回jsonrpc error
 
-### 打包但失败的error
+### 2. 打包但失败的error
 打包但失败后我们应该将其存储到db中，可以供rpc获取
 
-#### 存储receipt error
+#### 2.1 存储receipt error
 由于receipt error属于receipt附属信息，所以考虑将其与receipt一样存储到Blocks表，对key增加相应的suffix byte
 
 - table:Blocks 
@@ -33,7 +33,7 @@ vm error中不定长的信息有以下三种, 根据是否可控考虑是否做�
 2. Wasm(String),这个应该是webassembly抛出的，但不知str长度是否可控，暂时不限制长度
 3. BuiltIn(&'static str),这个为了防止错误信息太长，导致0成本消耗节点存储的攻击，考虑最多存储一定量(32?)字节
 
-#### 读取receipt error
+#### 2.2 读取receipt error
 在rpc.types.Receipt结构体中增加字段 outcome_error: null 或 error 字符串
 
 在cfx_getTransactionReceipt时返回携带outcome_error的Receipt
