@@ -1,12 +1,13 @@
 
-# tx现有问题
+# 针对现有tx执行错误和不打包情况的处理方案
+tx 当前主要有两个问题待解决
 1. tx不打包
 2. tx打包了但交易失败
 
 ## 不打包的情况
 针对不打包的情况建议新增一个rpc cfx_diagnoseTransactionByHash
 
-## tx error
+## tx打包了但交易失败
 分两种
 
 ### 未打包时的error （已实现）
