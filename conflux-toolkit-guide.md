@@ -1,5 +1,8 @@
 # Conflux toolkit 使用指南
-## 一、批量地址空投
+
+## 软件包下载
+从github下载最新[release版本](https://github.com/Conflux-Chain/conflux-toolkit)
+## 批量地址空投
 ### 1. flags说明
 运行`conflux-toolkit transfer -h` 查看transfer子命令所需flags
 
@@ -39,18 +42,20 @@ Flags:
 0x11782b012f293e1d0edf44c31a563f06b56835f2 4
 ```
 #### 2.2 导入私钥或创建新账户
-创建新账户
-```
-conflux-toolkit account import --key 0x......
-```
 
 导入私钥
 ```
 conflux-toolkit account create
 ```
 
+或者创建一个新账户
+```
+conflux-toolkit account import --key 0x......
+```
+
+
 #### 2.3 开始空投
-如空投到列表`~/transferlist.csv`, 发送者`0x11c5aeed5256b825bfc83e674327fc58dbd3e111`, 单次空投数量是5CFX, 每批次发送1000个地址, 命令如下
+如空投到列表`~/transferlist.csv`, 发送者`0x11c5aeed5256b825bfc83e674327fc58dbd3e111`, 单次空投数量是5CFX, 每批次发送最多1000个地址, 命令如下
 ```
 conflux-toolkit transfer --receivers "~/transferlist.csv" --from 0x11c5aeed5256b825bfc83e674327fc58dbd3e111 --number 5 --url http://test.confluxrpc.org --batch 1000
 ```
