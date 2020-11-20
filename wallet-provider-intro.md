@@ -2,7 +2,7 @@
 # Wallet provider standard
 Conflux wallet need injects a global API into websites visited by its users at window.conflux. This API allows websites to request users'  accounts, read data from blockchains the user is connected to, and suggest that the user sign messages and transactions. The presence of the provider object indicates an Conflux user.
 
-The Conflux JavaScript provider API is specified by EIP-1193, the difference is replcing the rpc name prefix from "eth_" to "cfx_"
+The Conflux JavaScript provider API is specified by EIP-1193, **and the difference of conflux is replcing the rpc name prefix from "eth_" to "cfx_"**
 ## EIP-1193
 
 ## Summary
@@ -239,101 +239,13 @@ The "accounts available to the Provider" change when the return value of `eth_ac
 
 ## EIP 1102
 
-## Simple summary
+### Simple summary
 
-This proposal describes a communication protocol between dapps and Ethereum-enabled DOM environments that allows the Ethereum-enabled DOM environment to choose what information to supply the dapp with and when.
+This proposal describes a communication protocol between dapps and Conflux-enabled DOM environments that allows the Conflux-enabled DOM environment to choose what information to supply the dapp with and when.
 
+provider should support follow rpc methods，relay on EIP-1102, and **the difference of Conflux is replace window.ethereum to window.conflux and replace rpc prefix eth_ to cfx_**
 
-## Rationale
-
-The pattern of automatic account exposure followed by the previous generation of Ethereum-enabled DOM environments fails to protect user privacy and fails to maintain safe user experience: untrusted websites can both view detailed account information and arbitrarily initiate transactions on a user's behalf. Even though most users may reject unsolicited transactions on untrusted websites, a protocol for account access should make such unsolicited requests impossible.
-
-This proposal establishes a new pattern wherein dapps must request access to user accounts. This protocol directly strengthens user privacy by allowing the browser to hide user accounts and preventing unsolicited transaction requests on untrusted sites.
-
-### Immediate value-add
-
-* Users can reject account access on untrusted sites to hide accounts.
-* Users can reject account access on untrusted sites to prevent unsolicited transactions.
-
-### Long-term value-add
-
-* Dapps could request specific account information based on user consent.
-* Dapps could request specific user information based on user consent (uPort, DIDs).
-* Dapps could request a specific network based on user consent.
-* Dapps could request multiple instances of the above based on user consent.
-
-## Specification
-
-### Concepts
-
-#### `eth_requestAccounts`
-
-Providers exposed by Ethereum-enabled DOM environments define a new RPC method: `eth_requestAccounts`. Calling this method may trigger a user interface that allows the user to approve or reject account access for a given dapp. This method returns a `Promise` that is resolved with an `Array` of accounts or is rejected with an `Error` if accounts are not available.
-
-```typescript
-ethereum.send('eth_requestAccounts'): Promise<Array<string>>
-```
-
-### Protocol
-
-#### Legacy dapp initialization
-
-```
-START dapp
-IF web3 is defined
-    CONTINUE dapp
-IF web3 is undefined
-    STOP dapp
-```
-
-#### Proposed dapp initialization
-
-```
-START dapp
-IF provider is defined
-    REQUEST[1] account access
-    IF user approves
-        RESOLVE[2] account access
-        CONTINUE dapp
-    IF user rejects
-        REJECT[3] account access
-        STOP dapp
-IF provider is undefined
-    STOP dapp
-```
-
-##### `[1] REQUEST`
-
-Dapps **MUST** request accounts by calling the `eth_requestAccounts` RPC method on the provider exposed at `window.ethereum`. Calling this method **MAY** trigger a user interface that allows the user to approve or reject account access for a given dapp. This method **MUST** return a `Promise` that is resolved with an array of one or more user accounts or rejected if no accounts are available (e.g., the user rejected account access).
-
-##### `[2] RESOLVE`
-
-The `Promise` returned when calling the `eth_requestAccounts` RPC method **MUST** be resolved with an `Array` of user accounts.
-
-##### `[3] REJECT`
-
-The `Promise` returned when calling the `eth_requestAccounts` RPC method **MUST** be rejected with an informative `Error` if no accounts are available for any reason.
-
-### Example initialization
-
-```js
-try {
-    // Request account access if needed
-    const accounts = await ethereum.send('eth_requestAccounts');
-    // Accounts now exposed, use them
-    ethereum.send('eth_sendTransaction', { from: accounts[0], /* ... */ })
-} catch (error) {
-    // User denied account access
-}
-```
-
-### Constraints
-
-* Browsers **MUST** expose a provider at `window.ethereum` .
-* Browsers **MUST** define an `eth_requestAccounts` RPC method.
-* Browsers **MAY** wait for a user interaction before resolving/rejecting the `eth_requestAccounts` promise.
-* Browsers **MUST** include at least one account if the `eth_requestAccounts` promise is resolved.
-* Browsers **MUST** reject the promise with an informative error if no accounts are available.
+- cfx_requestAccounts
 
 ## CIP-23 (Suggest compatible with EIP-712)
 ### Simple Summary
@@ -394,4 +306,4 @@ portal supported properties, some of them are deprecated and will remove in late
 - [EIP-712](https://eips.ethereum.org/EIPS/eip-712)
 - [CIP-23](https://github.com/Conflux-Chain/CIPs/blob/master/CIPs/cip-23.md)
 - [EIP-2255](https://eips.ethereum.org/EIPS/eip-2255)
-
+- [EIP-695](https://eips.ethereum.org/EIPS/eip-2255)
