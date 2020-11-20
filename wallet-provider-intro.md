@@ -272,27 +272,27 @@ provider should support follow rpc methods，relay on [EIP-2255](https://eips.et
 *it is optional*
 
 ## Others
-Due to some dapp is released and interact with protal, so suggest wallets to compatible with portal provider API.
+Due to some dapp is released and interact with protal, so suggest wallets to compatible with portal provider API. **And it is optional**.
 ### Portal provider supported methods and properties
 
 #### Methods relay on EIP-1193 old version
-Portal currently relay on old EIP-1193 version for rpc request, suggest to update follow new EIP-1193
+Portal currently relay on old EIP-1193 version for rpc request, suggest Portal to update follow new EIP-1193
 - send(options, callback) (To Be Replaced)
 - sendAsync(options, callback)
 - on(eventName, callback)
 
-#### Shortcut for EIP-1102
-portal currently relay on old EIP-1102 version for account requests, and it is a quick access method for rpc request_accounts
+#### Shortcut method for EIP-1102
+portal currently relay on old [EIP-1102](https://eips.ethereum.org/EIPS/eip-1102) version for account requests, and it is a quick access method for rpc request_accounts
 - enable()
 
-#### Shortcut for send
+#### Shortcut method for send
 - call(method, ...params)
 
 #### Deprecated methods
 - autoRefreshOnNetworkChange (To Be Removed)
 
 #### Propertis
-portal supported properties, some of them are deprecated and will remove in later version.
+portal supported properties, some of them are deprecated and will remove in later version. We suggest to support `requestId` and `isConnected`
 
 - isConfluxPortal
 - networkVersion (Deprecated)
