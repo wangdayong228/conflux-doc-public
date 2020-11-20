@@ -2,7 +2,7 @@
 # Wallet provider standard
 Conflux wallet need injects a global API into websites visited by its users at window.conflux. This API allows websites to request users'  accounts, read data from blockchains the user is connected to, and suggest that the user sign messages and transactions. The presence of the provider object indicates an Conflux user.
 
-The Conflux JavaScript provider API is specified by EIP-1193, **and the difference of conflux is replcing the rpc name prefix from "eth_" to "cfx_"**
+The Conflux JavaScript provider API is specified by EIP-1193, bellow is the main instruction of EIP-1193, **the difference of conflux is replcing the rpc name prefix from "eth_" to "cfx_"**
 ## EIP-1193
 
 ## Summary
